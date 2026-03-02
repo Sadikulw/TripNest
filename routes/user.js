@@ -1,30 +1,28 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
-const wrapAsync = require("../utils/wrapAsync");
 
-// signup form
 router.get("/signup", (req, res) => {
-    res.render("user/signup");
+  res.render("user/signup");
 });
-router.post("/signup", async (req, res, next) => {
-  try {
-    const { email, username, password } = req.body;
 
-    const newUser = new User({ email, username });
+router.post("/signup", (req, res, next) => {
+  const { email, username, password } = req.body;
 
-    const registeredUser = await User.register(newUser, password);
+  const newUser = new User({ email, username });
 
-    req.login(registeredUser, (err) => {
-      if (err) return next(err);
-
-      req.flash("success", "Welcome to TripNest " + username);
-      res.redirect("/listings");
+  User.register(newUser, password)
+    .then((registeredUser) => {
+      req.login(registeredUser, (err) => {
+        if (err) return next(err);
+        req.flash("success", "Welcome to TripNest " + username);
+        res.redirect("/listings");
+      });
+    })
+    .catch((err) => {
+      req.flash("error", err.message);
+      res.redirect("/signup");
     });
-
-  } catch (e) {
-    req.flash("error", e.message);
-    res.redirect("/signup");
-  }
 });
+
 module.exports = router;

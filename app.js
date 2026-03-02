@@ -45,7 +45,7 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(new LocalStrategy(User.authenticate()));
+passport.use(new LocalStrategy({ usernameField: "username" }, User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
@@ -55,22 +55,18 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/listings", listingRoutes);
+app.use("/", userRoutes);            
+app.use("/listings", listingRoutes); 
 app.use("/listings/:id/reviews", reviewRoutes);
-app.use("/", userRoutes);
 
-app.all("/", (req, res, next) => {
+app.use((req, res, next) => {
   next(new ExpressError(404, "Page Not Found"));
 });
 
 app.use((err, req, res, next) => {
-  console.error(err.stack);
-  let { statusCode = 500, message = "Something went wrong" } = err;
-  res.status(statusCode).send(`
-    <h1>Server Error</h1>
-    <h3>${message}</h3>
-    <pre>${err.stack}</pre>
-  `);
+  console.error("REAL ERROR ↓↓↓");
+  console.error(err);
+  res.status(500).send(err.stack || err);
 });
 
 app.listen(port, () => {
