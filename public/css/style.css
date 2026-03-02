@@ -1,0 +1,189 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+
+main {
+  flex: 1;
+}
+
+
+
+.navbar{
+    height: 5rem;
+     background-color: rgb(245, 245, 245);
+   
+}
+.navbar-brand{
+    color: red;
+    font-size: 1.5rem;
+
+    font-weight: 600;
+   
+}
+.fa-home{
+    font-size: 2rem;
+}
+footer{
+      background-color: rgb(245, 245, 245);
+}
+.me-2{
+    color: black;
+}
+@media (max-width: 991px) {
+  .mobile-menu {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+}
+
+
+
+.listing-card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.listing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.listing-card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.price {
+  font-weight: 500;
+  color: #28a745;
+}
+.edit-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.edit-card h2 {
+  font-weight: 600;
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #0d6efd;
+}
+
+.btn-primary {
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 500;
+}
+.details-card {
+  border: none;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.details-img {
+  height: 350px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+.list-group-item {
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+}
+
+.btn {
+  border-radius: 8px;
+}
+.create-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.form-label {
+  font-weight: 500;
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #198754;
+}
+
+.btn-success {
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 500;
+}
+.footer {
+  background-color: #f9fafb;
+}
+
+.social-link {
+  color: #6b7280;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-link:hover {
+  color: #0d6efd;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+.card img {
+  transition: 0.4s ease;
+}
+
+.card img:hover {
+  transform: scale(1.03);
+}
+
+.btn {
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}

@@ -1,0 +1,23 @@
+<div class="container d-flex justify-content-center mt-2">
+
+  <% if(success && success.length > 0){ %>
+    <div class="alert alert-success alert-dismissible fade show shadow-sm text-center"
+         role="alert" style="max-width:500px; width:100%;">
+      <%= success %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+  <% } %>
+
+</div>
+
+<div class="container d-flex justify-content-center mt-2">
+
+  <% if(error && error.length > 0){ %>
+    <div class="alert alert-danger alert-dismissible fade show shadow-sm text-center"
+         role="alert" style="max-width:500px; width:100%;">
+      <%= error %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+  <% } %>
+
+</div>
