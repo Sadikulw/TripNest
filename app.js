@@ -55,18 +55,22 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/", userRoutes);            
-app.use("/listings", listingRoutes); 
-app.use("/listings/:id/reviews", reviewRoutes);
+
+app.use("/", userRoutes);
+app.use("/listings/:id/reviews", reviewRoutes); 
+app.use("/listings", listingRoutes);            
+
+app.get("/", (req, res) => {
+  res.send("Home Page Working ");
+});
 
 app.use((req, res, next) => {
   next(new ExpressError(404, "Page Not Found"));
 });
 
 app.use((err, req, res, next) => {
-  console.error("REAL ERROR ↓↓↓");
-  console.error(err);
-  res.status(500).send(err.stack || err);
+  let { statusCode = 500, message = "Something went wrong" } = err;
+  res.status(statusCode).send(message);
 });
 
 app.listen(port, () => {

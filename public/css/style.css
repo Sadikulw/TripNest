@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -12,28 +13,24 @@ main {
   flex: 1;
 }
 
+.navbar {
+  height: 5rem;
+  background-color: rgb(245, 245, 245);
+}
+.navbar-brand {
+  color: red;
+  font-size: 1.5rem;
 
-
-.navbar{
-    height: 5rem;
-     background-color: rgb(245, 245, 245);
-   
+  font-weight: 600;
 }
-.navbar-brand{
-    color: red;
-    font-size: 1.5rem;
-
-    font-weight: 600;
-   
+.fa-home {
+  font-size: 2rem;
 }
-.fa-home{
-    font-size: 2rem;
+footer {
+  background-color: rgb(245, 245, 245);
 }
-footer{
-      background-color: rgb(245, 245, 245);
-}
-.me-2{
-    color: black;
+.me-2 {
+  color: black;
 }
 @media (max-width: 991px) {
   .mobile-menu {
@@ -41,18 +38,18 @@ footer{
     padding: 15px;
     border-radius: 10px;
     margin-top: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   }
 }
-
-
 
 .listing-card {
   border: none;
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
@@ -156,7 +153,9 @@ footer{
 
 .social-link {
   color: #6b7280;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .social-link:hover {
