@@ -35,7 +35,7 @@ const sessionOption = {
 };
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust');
+  await mongoose.connect('mongodb://127.0.0.1:27017/TripNest');
 }
 main().then(() => console.log("Connected to MongoDB"));
 
@@ -52,6 +52,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
+  res.locals.currentUser=req.user;
   next();
 });
 
@@ -61,11 +62,12 @@ app.use("/listings/:id/reviews", reviewRoutes);
 app.use("/listings", listingRoutes);            
 
 app.get("/", (req, res) => {
-  res.send("Home Page Working ");
+  res.redirect("/listings")
 });
 
 app.use((req, res, next) => {
-  next(new ExpressError(404, "Page Not Found"));
+  req.flash("error", "Page Not Found");
+  res.redirect("/listings");
 });
 
 app.use((err, req, res, next) => {

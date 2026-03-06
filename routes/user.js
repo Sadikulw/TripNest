@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
 const passport = require("passport");
-
+const {saveRedirectUrl}=require('../middleware.js')
 router.get("/signup", (req, res) => {
   res.render("user/signup");
 });
@@ -32,12 +32,25 @@ router.get("/login", (req, res) => {
 
 router.post(
   "/login",
-  passport.authenticate("local", { failureRedirect: "/login" }),
+  saveRedirectUrl,
+ passport.authenticate("local", {
+    failureRedirect: "/login",
+    failureFlash: true
+  }),
   async (req, res) => {
     let{username}=req.body;
     req.flash("success","Welcome back to TripNest " + username);
-    res.redirect("/listings")
+    let redirectUrl=res.locals.redirectUrl || "/listings"
+    res.redirect(redirectUrl)
   },
 );
-
+router.get("/logout",(req,res,next)=>{
+req.logOut((err)=>{
+  if(err){
+    return next(err)
+  }
+  req.flash("success","you successfull logout ")
+  res.redirect("/listings")
+})
+})
 module.exports = router;

@@ -12,16 +12,34 @@ body {
 main {
   flex: 1;
 }
-
-.navbar {
-  height: 5rem;
-  background-color: rgb(245, 245, 245);
+.navbar{
+    padding:15px 0;
+    border-bottom:1px solid #eee;
 }
-.navbar-brand {
-  color: red;
-  font-size: 1.5rem;
 
-  font-weight: 600;
+.brand-text{
+    color:#ff385c;
+    font-size:22px;
+}
+
+.nav-link{
+    font-weight:500;
+    color:#444;
+}
+
+.nav-link:hover{
+    color:#ff385c;
+}
+
+.btn-primary{
+    background:#ff385c;
+    border:none;
+    border-radius:20px;
+    padding:6px 18px;
+}
+
+.btn-primary:hover{
+    background:#e03150;
 }
 .fa-home {
   font-size: 2rem;
